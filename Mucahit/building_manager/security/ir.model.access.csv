@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_app_user,User Access,model_employee_building_assignment,employee_building_assignment_group_user,1,0,0,0
+access_app_officer,Officer Access,model_employee_building_assignment,employee_building_assignment_group_officer,1,1,1,0
+access_app_manager,Manager Access,model_employee_building_assignment,employee_building_assignment_group_manager,1,1,1,1
+
+access_app_user_2,User Access,model_fm_building,employee_building_assignment_group_user,1,0,0,0
+access_app_officer_2,Officer Access,model_fm_building,employee_building_assignment_group_officer,1,1,1,0
+access_app_manager_2,Manager Access,model_fm_building,employee_building_assignment_group_manager,1,1,1,1

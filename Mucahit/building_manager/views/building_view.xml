@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!--tree view of the patient model-->
+    <record id="employee_tree" model="ir.ui.view">
+        <field name="name">employee.list.tree</field>
+        <field name="model">employee.building.assignment</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Building Assignment">
+                <field name="employee_id"/>
+                <field name="building_id"/>
+                <field name="assignment_start_date"/>
+                <field name="assignment_end_date"/>
+            </tree>
+        </field>
+     </record>
+
+    <!--form view of the patient model-->
+    <record id="employee_form" model="ir.ui.view">
+        <field name="name">employee.list.form</field>
+        <field name="model">employee.building.assignment</field>
+        <field name="arch" type="xml">
+            <form string="Employee">
+                <sheet>
+                    <group>
+                        <field name="employee_id" />
+                        <field name="building_id" widget="many2one_tags"/>
+                        <field name="assignment_start_date"/>
+                        <field name="assignment_end_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--action of the patients menu-->
+    <record id="action_employee" model="ir.actions.act_window">
+        <field name="name">Employee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.building.assignment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--tree view of the patient model-->
+    <record id="building_tree" model="ir.ui.view">
+        <field name="name">building.list.tree</field>
+        <field name="model">fm.building</field>
+        <field name="arch" type="xml">
+            <tree string="Buildings">
+                <field name="building_name"/>
+                <field name="building_no"/>
+                <field name="building_dimension"/>
+                <field name="construction_year"/>
+                <field name="structural_system"/>
+                <field name="office_area_as_mt_square"/>
+                <field name="under_roof_area_as_mt"/>
+                <field name="under_roof_area_as_feet"/>
+            </tree>
+        </field>
+     </record>
+
+    <!--form view of the patient model-->
+    <record id="building_form" model="ir.ui.view">
+        <field name="name">building.list.form</field>
+        <field name="model">fm.building</field>
+        <field name="arch" type="xml">
+            <form string="Buildings">
+                <sheet>
+                    <group>
+                        <field name="building_name"/>
+                        <field name="building_no"/>
+                        <field name="building_dimension"/>
+                        <field name="construction_year"/>
+                        <field name="structural_system"/>
+                        <field name="office_area_as_mt_square"/>
+                        <field name="under_roof_area_as_mt"/>
+                        <field name="under_roof_area_as_feet"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--action of the patients menu-->
+    <record id="action_building" model="ir.actions.act_window">
+        <field name="name">Buildings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fm.building</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--creating menus-->
+    <menuitem id="building_root" name="Buildings" sequence="3" web_icon="building_manager,static/description/icon.png" groups="employee_building_assignment_group_user"/>
+    <menuitem id="building_info" name="Buildings" parent="building_root" action="action_building" sequence="1" groups="employee_building_assignment_group_user"/>
+    <menuitem id="employee_info" name="Employees" parent="building_root" action="action_employee" sequence="2" groups="employee_building_assignment_group_user"/>
+
+</odoo>
+
